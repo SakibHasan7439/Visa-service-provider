@@ -28,13 +28,13 @@ const Router = createBrowserRouter([
             {
                 path: "/allVisas",
                 element: <PrivateRoute><AllVisas></AllVisas></PrivateRoute>,
-                loader: ()=>fetch('http://localhost:5000/addVisas')
+                loader: ()=>fetch('https://visa-processing-server-pearl.vercel.app/addVisas')
             },
 
             {
                 path: "/allVisas/:id",
                 element: <PrivateRoute><VisaDetails></VisaDetails></PrivateRoute>,
-                loader: ({params})=>fetch(`http://localhost:5000/addVisas/${params.id}`)
+                loader: ({params})=>fetch(`https://visa-processing-server-pearl.vercel.app/addVisas/${params.id}`)
             },
 
             {

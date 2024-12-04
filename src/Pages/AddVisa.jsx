@@ -27,7 +27,7 @@ const AddVisa = () => {
 
         const visa = {countryImage, countryName, visa_type, Processing_time, required_docs, description, fee, age, validity, applicationMethod, displayName}
 
-        fetch('http://localhost:5000/addVisas', {
+        fetch('https://visa-processing-server-pearl.vercel.app/addVisas', {
           method: "POST",
           headers: {
             "content-type": "application/json"
