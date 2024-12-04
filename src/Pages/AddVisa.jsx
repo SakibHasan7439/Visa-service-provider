@@ -20,7 +20,7 @@ const AddVisa = () => {
         const required_docs = [applicationForm, photograph, validPassport]
         const description = form.description.value;
         const age = form.age.value;
-        const fee = form.age.value;
+        const fee = form.fee.value;
         const validity = form.validity.value;
         const applicationMethod = form.applicationMethod.value;
         const displayName = user.displayName;

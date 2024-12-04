@@ -1,6 +1,8 @@
+import { Link } from "react-router-dom";
+
 // eslint-disable-next-line react/prop-types
 const AllVisaCard = ({ visa }) => {
-  const {countryImage, countryName, visa_type, Processing_time, fee} = visa;
+  const {countryImage, countryName, visa_type, Processing_time, fee, _id} = visa;
   return (
     <div className="card rounded-md bg-base-100 col-span-12 md:col-span-2 lg:col-span-3 shadow-xl">
       <figure>
@@ -23,7 +25,7 @@ const AllVisaCard = ({ visa }) => {
             </div>
         </div>
         <div className="card-actions justify-start">
-          <button className="btn bg-red-500 text-white">Show Details</button>
+          <Link to={`/allVisas/${_id}`} className="btn bg-red-500 text-white">Show Details</Link>
         </div>
       </div>
     </div>
