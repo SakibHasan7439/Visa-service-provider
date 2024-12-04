@@ -5,6 +5,8 @@ import Login from "../Pages/Login";
 import Register from "../Pages/Register";
 import ErrorPage from "../Pages/ErrorPage";
 import AddVisa from "../Pages/AddVisa";
+import PrivateRoute from "./PrivateRoute";
+import AllVisas from "../Pages/AllVisas";
 
 const Router = createBrowserRouter([
     {
@@ -19,7 +21,13 @@ const Router = createBrowserRouter([
 
             {
                 path: "/addVisas",
-                element: <AddVisa></AddVisa>
+                element: <PrivateRoute><AddVisa></AddVisa></PrivateRoute>
+            },
+
+            {
+                path: "/allVisas",
+                element: <PrivateRoute><AllVisas></AllVisas></PrivateRoute>,
+                loader: ()=>fetch('http://localhost:5000/addVisas')
             },
 
             {

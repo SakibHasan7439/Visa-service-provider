@@ -1,15 +1,51 @@
+import { useContext } from "react";
 import "./rawClasses.css";
+import { AuthContext } from "../Provider/AuthProvider";
+import Swal from "sweetalert2";
 
 const AddVisa = () => {
+    const { user } = useContext(AuthContext);
+
     const handleSubmit = (e) =>{
         e.preventDefault();
+        console.log(e.target.image.value);
         const form = e.target;
-        const countryImage = form.countryImage.value;
+        const countryImage = form.image.value;
         const countryName = form.name.value;
         const visa_type = form.visas.value;
         const Processing_time = form.time.value;
-        
-        console.log({countryImage, countryName, visa_type, Processing_time});
+        const validPassport = form.validPassport.value;
+        const applicationForm = form.applicationForm.value;
+        const photograph = form.photograph.value;
+        const required_docs = [applicationForm, photograph, validPassport]
+        const description = form.description.value;
+        const age = form.age.value;
+        const fee = form.age.value;
+        const validity = form.validity.value;
+        const applicationMethod = form.applicationMethod.value;
+        const displayName = user.displayName;
+
+        const visa = {countryImage, countryName, visa_type, Processing_time, required_docs, description, fee, age, validity, applicationMethod, displayName}
+
+        fetch('http://localhost:5000/addVisas', {
+          method: "POST",
+          headers: {
+            "content-type": "application/json"
+          },
+          body: JSON.stringify(visa)
+        })
+        .then(res => res.json())
+        .then(data =>{
+          console.log(data);
+          if(data.insertedId){
+            Swal.fire({
+              title: "success",
+              text: "Visa added successfully",
+              icon: "success"
+            });
+            form.reset();
+          }
+        })
     }
   return (
     <div className="max-w-7xl w-full mx-auto mb-6">
@@ -18,7 +54,7 @@ const AddVisa = () => {
         <div className="lg:flex justify-between gap-4">
           <div>
             <label>Country image</label>
-            <input type="text" name="countryImage" id="" />
+            <input type="text" placeholder="country image" name="image" id="" />
 
             <label>Country Name</label>
             <input type="text" name="name" id="" />
@@ -77,16 +113,16 @@ const AddVisa = () => {
             <input type="number" placeholder="age restriction" name="age" id="" />
 
             <label>Fee</label>
-            <input type="text"  placeholder="fee" name="countryImage" id="" />
+            <input type="number"  placeholder="fee" name="countryImage" id="" />
 
             <label>Validity</label>
-            <input type="text" placeholder="validity" name="countryImage" id="" />
+            <input type="text" placeholder="validity" name="validity" id="" />
 
             <label>Application_method</label>
-            <input type="text" placeholder="application method" name="countryImage" id="" />
+            <input type="text" placeholder="application method" name="applicationMethod" id="" />
           </div>
         </div>
-        <input className="flex justify-center" type="submit" value="Add Visa" />
+        <input className="flex justify-center bg-red-500 text-white cursor-pointer hover:bg-red-600" type="submit" value="Add Visa" />
       </form>
     </div>
   );

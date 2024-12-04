@@ -1,4 +1,4 @@
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import logo from "../assets/evs-logo.png";
 import "./Navbar.css";
 import { useContext } from "react";
@@ -42,11 +42,11 @@ const Navbar = () => {
             tabIndex={0}
             className="menu menu-sm flex flex-col gap-2 dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
           >
-            <NavLink>Home</NavLink>
-            <NavLink>All Visas</NavLink>
-            <NavLink>Add Visa</NavLink>
-            <NavLink>My added visas</NavLink>
-            <NavLink>My Visa applications</NavLink>
+            <NavLink to={"/"}>Home</NavLink>
+            <NavLink to={"/allVisas"}>All Visas</NavLink>
+            <NavLink to={"/addVisas"}>Add Visa</NavLink>
+            <NavLink to={"/myVisas"}>My added visas</NavLink>
+            <NavLink to={"/myApplications"}>My Visa applications</NavLink>
           </ul>
         </div>
         <div className="flex items-center">
@@ -61,8 +61,8 @@ const Navbar = () => {
           <NavLink to={"/"}>Home</NavLink>
           <NavLink to={"/allVisas"}>All Visas</NavLink>
           <NavLink to={"/addVisas"}>Add Visa</NavLink>
-          <NavLink to={"/myVisa"}>My added visas</NavLink>
-          <NavLink to={"/myApplication"}>My Visa applications</NavLink>
+          <NavLink to={"/myVisas"}>My added visas</NavLink>
+          <NavLink to={"/myApplications"}>My Visa applications</NavLink>
         </ul>
       </div>
       <div className="navbar-end">
@@ -75,8 +75,8 @@ const Navbar = () => {
             <button onClick={handleSignOut} className="bg-red-500 rounded-md text-sm px-5 py-1 font-semibold text-white">LogOut</button>
           </div> :
           <div className="flex gap-4 text-lg">
-            <Link to={"/login"}>Login</Link>
-            <Link to={"/register"}>Register</Link>
+            <NavLink to={"/login"}>Login</NavLink>
+            <NavLink to={"/register"}>Register</NavLink>
           </div>
         }
       </div>

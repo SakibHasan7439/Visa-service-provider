@@ -8,7 +8,7 @@ const MainLayout = () => {
             <div className="max-w-7xl w-full mx-auto">
                 <Navbar></Navbar>
             </div>
-            <div>
+            <div className="min-h-[calc(100vh-440px)]">
                 <Outlet></Outlet>
             </div>
             <div className="bg-gray-900 py-6 lg:py-16">
