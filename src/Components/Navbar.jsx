@@ -1,8 +1,23 @@
 import { Link, NavLink } from "react-router-dom";
 import logo from "../assets/evs-logo.png";
 import "./Navbar.css";
+import { useContext } from "react";
+import { AuthContext } from "../Provider/AuthProvider";
+import toast from "react-hot-toast";
 
 const Navbar = () => {
+  const { user, signOutUser } = useContext(AuthContext);
+  const handleSignOut = () =>{
+    signOutUser()
+    .then(res =>{
+      toast.success("Signed Out successfully");
+      console.log(res);
+    })
+    .catch(err =>{
+      toast.error("Something wrong!");
+      console.log(err);
+    })
+  }
   return (
     <div className="navbar bg-base-100">
       <div className="navbar-start">
@@ -36,13 +51,13 @@ const Navbar = () => {
         </div>
         <div className="flex items-center">
           <img className="w-12 md:w-24" src={logo} alt="website logo" />
-          <a className="btn btn-ghost px-0 text-sm pt-[10px] md:pt-[14px] font-bold md:text-3xl text-blue-900">
+          <a className="btn btn-ghost md:text-xl px-0 text-sm pt-[10px] md:pt-[14px] font-bold xl:text-3xl text-blue-900">
             VISA PORTAL
           </a>
         </div>
       </div>
       <div className="navbar-center hidden pt-[12px] lg:flex">
-        <ul className="menu menu-horizontal gap-4 text-lg px-1">
+        <ul className="menu menu-horizontal gap-4 lg:text-sm xl:text-lg text-lg px-1">
           <NavLink>Home</NavLink>
           <NavLink>All Visas</NavLink>
           <NavLink>Add Visa</NavLink>
@@ -50,9 +65,18 @@ const Navbar = () => {
           <NavLink>My Visa applications</NavLink>
         </ul>
       </div>
-      <div className="navbar-end flex gap-4 text-lg">
-       <Link>Login</Link>
-       <Link>Register</Link>
+      <div className="navbar-end">
+        {
+          user ? 
+          <div className="flex gap-4 text-lg">
+            <img className="w-7 h-7 md:w-12 md:h-12 object-cover rounded-full" src={user.photoURL} alt="user image" />
+            <button onClick={handleSignOut} className="bg-red-500 rounded-md text-sm px-5 py-1 font-semibold text-white">LogOut</button>
+          </div> :
+          <div className="flex gap-4 text-lg">
+            <Link to={"/login"}>Login</Link>
+            <Link to={"/register"}>Register</Link>
+          </div>
+        }
       </div>
     </div>
   );
