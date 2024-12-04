@@ -3,16 +3,23 @@ import MainLayout from "../Layout/MainLayout";
 import Home from "../Pages/Home";
 import Login from "../Pages/Login";
 import Register from "../Pages/Register";
+import ErrorPage from "../Pages/ErrorPage";
+import AddVisa from "../Pages/AddVisa";
 
 const Router = createBrowserRouter([
     {
         path: "/",
         element: <MainLayout></MainLayout>,
-        // add error page
+        errorElement: <ErrorPage></ErrorPage>,
         children: [
             {
                 path: "/",
                 element: <Home></Home>
+            },
+
+            {
+                path: "/addVisas",
+                element: <AddVisa></AddVisa>
             },
 
             {

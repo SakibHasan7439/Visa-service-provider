@@ -58,18 +58,20 @@ const Navbar = () => {
       </div>
       <div className="navbar-center hidden pt-[12px] lg:flex">
         <ul className="menu menu-horizontal gap-4 lg:text-sm xl:text-lg text-lg px-1">
-          <NavLink>Home</NavLink>
-          <NavLink>All Visas</NavLink>
-          <NavLink>Add Visa</NavLink>
-          <NavLink>My added visas</NavLink>
-          <NavLink>My Visa applications</NavLink>
+          <NavLink to={"/"}>Home</NavLink>
+          <NavLink to={"/allVisas"}>All Visas</NavLink>
+          <NavLink to={"/addVisas"}>Add Visa</NavLink>
+          <NavLink to={"/myVisa"}>My added visas</NavLink>
+          <NavLink to={"/myApplication"}>My Visa applications</NavLink>
         </ul>
       </div>
       <div className="navbar-end">
         {
           user ? 
           <div className="flex gap-4 text-lg">
-            <img className="w-7 h-7 md:w-12 md:h-12 object-cover rounded-full" src={user.photoURL} alt="user image" />
+            <div className="tooltip" data-tip={user.displayName}>
+              <img className="w-7 h-7 md:w-12 md:h-12 object-cover rounded-full" src={user.photoURL} alt="user image" />
+            </div>
             <button onClick={handleSignOut} className="bg-red-500 rounded-md text-sm px-5 py-1 font-semibold text-white">LogOut</button>
           </div> :
           <div className="flex gap-4 text-lg">
