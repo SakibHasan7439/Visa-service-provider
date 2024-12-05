@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-
+/* eslint-disable react/prop-types */
 const LatestVisaCard = ({visa}) => {
     const {countryName, countryImage, visa_type, Processing_time, _id, fee, validity, Application_method} = visa;
     return (

@@ -1,5 +1,5 @@
 import toast from "react-hot-toast";
-
+/* eslint-disable react/prop-types */
 const ApplicationCard = ({info, setApplicantInfo, applicantInfo}) => {
     const { countryImage, countryName, appliedFee, appliedDate, visa_type, processing_time, validity, application_method, firstName, lastName, email, _id } = info;
 

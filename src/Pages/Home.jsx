@@ -11,7 +11,7 @@ const Home = () => {
     <div>
       <Banner></Banner>
       <div className="max-w-7xl w-full mx-auto">
-        <h2 className="mt-8 mb-4 text-2xl font-semibold text-center">
+        <h2 className="md:text-2x font-semibold text-center lg:text-4xl mb-6 lg:mb-8">
           Latest Visa Cards
         </h2>
         <div className="grid grid-cols-12 gap-4 mb-6">

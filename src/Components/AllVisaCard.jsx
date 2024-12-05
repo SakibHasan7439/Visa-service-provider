@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 
-// eslint-disable-next-line react/prop-types
+
+/* eslint-disable react/prop-types */
 const AllVisaCard = ({ visa }) => {
   const {countryImage, countryName, visa_type, Processing_time, fee, _id} = visa;
   return (
