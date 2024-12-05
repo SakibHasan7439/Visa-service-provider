@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 const LatestVisaCard = ({visa}) => {
     const {countryName, countryImage, visa_type, Processing_time, _id, fee, validity, Application_method} = visa;
     return (
-        <div className="card rounded-md bg-base-100 col-span-12 md:col-span-2 lg:col-span-4 xl:col-span-3 shadow-xl">
+        <div className="card rounded-md bg-base-100 col-span-12 md:col-span-6 lg:col-span-4 xl:col-span-3 shadow-xl">
         <figure>
           <img className="w-full h-[205px]"
             src={countryImage}

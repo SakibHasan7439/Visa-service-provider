@@ -22,7 +22,9 @@ const MyVisaApplication = () => {
                 {
                     applicantInfo.map((info => <ApplicationCard 
                     key={info._id}
-                    info={info}>
+                    info={info}
+                    applicantInfo={applicantInfo}
+                    setApplicantInfo={setApplicantInfo}>
                         
                     </ApplicationCard>))
                 }

@@ -1,5 +1,21 @@
-const ApplicationCard = ({info}) => {
-    const { countryImage, countryName, appliedFee, appliedDate, visa_type, processing_time, validity, application_method, firstName, lastName, email } = info;
+import toast from "react-hot-toast";
+
+const ApplicationCard = ({info, setApplicantInfo, applicantInfo}) => {
+    const { countryImage, countryName, appliedFee, appliedDate, visa_type, processing_time, validity, application_method, firstName, lastName, email, _id } = info;
+
+    const handleDelete = (_id) =>{
+        fetch(`https://visa-processing-server-pearl.vercel.app/addApplication/${_id}`, {
+            method: "DELETE"
+        })
+        .then(res => res.json())
+        .then(data =>{
+            if(data.deletedCount > 0){
+                toast.success("Removed Successfully");
+                const remaining = applicantInfo.filter((application)=> application._id !== _id);
+                setApplicantInfo(remaining);
+            }
+        })
+    }
 
     return (
         <div className="max-w-md bg-white col-span-12 md:col-span-6 lg:col-span-4 shadow-lg rounded-lg overflow-hidden border">
@@ -52,7 +68,7 @@ const ApplicationCard = ({info}) => {
     
         {/* Cancel Button */}
         <div className="border-t p-4 text-right">
-            <button
+            <button onClick={()=>handleDelete(_id)}
             className="px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600"
             >
             Cancel

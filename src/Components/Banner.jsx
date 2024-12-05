@@ -12,7 +12,7 @@ import 'swiper/css/scrollbar';
 
 const Banner = () => {
     return (
-        <Swiper className='mb-8 lg:mb-16'
+        <Swiper className='mb-8 lg:mb-16 z-[900]'
         modules={[Navigation, Pagination, Scrollbar, A11y, Autoplay]}
         spaceBetween={50}
         slidesPerView={1}
