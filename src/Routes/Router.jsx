@@ -36,11 +36,10 @@ const Router = createBrowserRouter([
             {
                 path: "/myApplications",
                 element: <PrivateRoute><MyVisaApplication></MyVisaApplication></PrivateRoute>,
-                loader: ()=>fetch("https://visa-processing-server-pearl.vercel.app/addApplications")
             },
 
             {
-                path: "/addApplications",
+                path: "/allVisas/:id",
                 element: <PrivateRoute><VisaDetails></VisaDetails></PrivateRoute>,
                 loader: ({params})=>fetch(`https://visa-processing-server-pearl.vercel.app/addVisas/${params.id}`)
             },

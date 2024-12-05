@@ -11,7 +11,6 @@ const VisaDetails = () => {
     countryName,
     visa_type,
     Processing_time,
-    required_docs,
     description,
     age,
     fee,
@@ -29,7 +28,7 @@ const VisaDetails = () => {
     const appliedFee = form.fee.value;
     const userEmail = user.email;
 
-    const newApplication = {email, firstName, lastName, appliedDate, appliedFee, userEmail};
+    const newApplication = {email, firstName, lastName, appliedDate, appliedFee, userEmail, countryImage, countryName, visa_type, Processing_time, description,validity};
 
     fetch("https://visa-processing-server-pearl.vercel.app/addApplications", {
       method: "POST",
