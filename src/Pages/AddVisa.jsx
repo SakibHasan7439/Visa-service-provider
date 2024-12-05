@@ -23,9 +23,10 @@ const AddVisa = () => {
         const fee = form.fee.value;
         const validity = form.validity.value;
         const applicationMethod = form.applicationMethod.value;
-        const displayName = user.displayName;
+        const email = user.email;
 
-        const visa = {countryImage, countryName, visa_type, Processing_time, required_docs, description, fee, age, validity, applicationMethod, displayName}
+        const visa = {countryImage, countryName, visa_type, Processing_time, required_docs, description, fee, age, validity, applicationMethod, email}
+        console.log(visa);
 
         fetch('https://visa-processing-server-pearl.vercel.app/addVisas', {
           method: "POST",
@@ -113,7 +114,7 @@ const AddVisa = () => {
             <input type="number" placeholder="age restriction" name="age" id="" />
 
             <label>Fee</label>
-            <input type="number"  placeholder="fee" name="countryImage" id="" />
+            <input type="number"  placeholder="fee" name="fee" id="" />
 
             <label>Validity</label>
             <input type="text" placeholder="validity" name="validity" id="" />

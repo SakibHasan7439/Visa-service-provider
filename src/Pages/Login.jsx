@@ -1,11 +1,12 @@
 import { useContext } from "react";
 import { FcGoogle } from "react-icons/fc";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Provider/AuthProvider";
 import toast from "react-hot-toast";
 
 const Login = () => {
-  const { signInUser } = useContext(AuthContext);
+  const navigate = useNavigate();
+  const { signInUser, signInWithGoogle } = useContext(AuthContext);
   const handleLogin = (e) =>{
     e.preventDefault();
     const form = e.target;
@@ -21,6 +22,19 @@ const Login = () => {
       toast.error(err.message);
     })
   }
+
+  const handleSignInWithGoogle = () =>{
+    signInWithGoogle()
+    .then(() =>{
+      toast.success("Sign in successfully");
+      navigate("/");
+    })
+    .catch(err => {
+      toast.error("something wrong!");
+      console.log(err);
+    })
+  }
+
   return (
     <div className="hero bg-base-200 min-h-screen">
       <div className="hero-content lg:w-[400px] flex-col">
@@ -60,7 +74,7 @@ const Login = () => {
             </div>
             <div className="form-control mt-6">
               <button className="btn btn-primary mb-2">Login</button>
-              <button className="p-3 flex gap-2 items-center justify-center shadow-md border rounded-md">
+              <button onClick={handleSignInWithGoogle} className="p-3 flex gap-2 items-center justify-center shadow-md border rounded-md">
                 <FcGoogle className="text-xl"></FcGoogle>
                 <span>Signin with Google</span>
               </button>

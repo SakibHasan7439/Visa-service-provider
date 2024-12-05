@@ -8,6 +8,7 @@ import AddVisa from "../Pages/AddVisa";
 import PrivateRoute from "./PrivateRoute";
 import AllVisas from "../Pages/AllVisas";
 import VisaDetails from "../Pages/VisaDetails";
+import MyVisaApplication from "../Pages/MyVisaApplication";
 
 const Router = createBrowserRouter([
     {
@@ -17,7 +18,8 @@ const Router = createBrowserRouter([
         children: [
             {
                 path: "/",
-                element: <Home></Home>
+                element: <Home></Home>,
+                loader: ()=>fetch('https://visa-processing-server-pearl.vercel.app/addLatestVisas')
             },
 
             {
@@ -32,7 +34,13 @@ const Router = createBrowserRouter([
             },
 
             {
-                path: "/allVisas/:id",
+                path: "/myApplications",
+                element: <PrivateRoute><MyVisaApplication></MyVisaApplication></PrivateRoute>,
+                loader: ()=>fetch("https://visa-processing-server-pearl.vercel.app/addApplications")
+            },
+
+            {
+                path: "/addApplications",
                 element: <PrivateRoute><VisaDetails></VisaDetails></PrivateRoute>,
                 loader: ({params})=>fetch(`https://visa-processing-server-pearl.vercel.app/addVisas/${params.id}`)
             },
