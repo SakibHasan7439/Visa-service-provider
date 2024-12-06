@@ -1,6 +1,5 @@
+/* eslint-disable react/prop-types */
 const MyVisaCard = ({ myVisa }) => {
-    
-  console.log(myVisa);
   const {CountryName, countryImage, visa_type, Processing_time, fee, validity, application_method} = myVisa;
 
   return (
