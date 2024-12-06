@@ -33,7 +33,6 @@ const MyVisaApplication = () => {
         
     )
 
-    
 };
 
 export default MyVisaApplication;
