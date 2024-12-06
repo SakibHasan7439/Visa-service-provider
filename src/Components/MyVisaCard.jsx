@@ -7,7 +7,7 @@ const MyVisaCard = ({ myVisa, setMyVisas, myVisas }) => {
   const {countryName, countryImage, visa_type, Processing_time, fee, validity, application_method, _id} = myVisa;
 
   const handleDelete = (_id) =>{
-    fetch(`https://visa-processing-server-pearl.vercel.app/myVisas/${_id}`, {
+    fetch(`https://visa-processing-server-pearl.vercel.app/deleteUserVisa/${_id}`, {
         method:"DELETE"
     })
     .then(res => res.json())
