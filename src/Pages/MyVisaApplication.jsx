@@ -10,7 +10,6 @@ const MyVisaApplication = () => {
         fetch(`https://visa-processing-server-pearl.vercel.app/addApplications?userEmail=${user.email}`)
         .then(res => res.json())
         .then(data =>{
-        console.log(data);
         setApplicantInfo(data);
     })
     }, []);

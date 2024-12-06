@@ -7,10 +7,9 @@ const MyAddedVisa = () => {
     const [myVisas, setMyVisas] = useState([]);
 
     useEffect(()=>{
-        fetch(`https://visa-processing-server-pearl.vercel.app/myVisas?userEmail=${user.email}`)
+        fetch(`https://visa-processing-server-pearl.vercel.app/myVisas?email=${user.email}`)
         .then(res => res.json())
         .then(data => {
-            console.log(data);
             setMyVisas(data);
         })
     }, []);
@@ -21,7 +20,9 @@ const MyAddedVisa = () => {
                 {
                     myVisas.map((myVisa)=> <MyVisaCard 
                         key={myVisa._id}
-                        myVisa={myVisa}>
+                        myVisa={myVisa}
+                        myVisas={myVisas}
+                        setMyVisas={setMyVisas}>
                     </MyVisaCard>)
                 }
             </div>
