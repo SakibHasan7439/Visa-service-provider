@@ -1,12 +1,13 @@
 import { useContext } from "react";
 import { FcGoogle } from "react-icons/fc";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import { AuthContext } from "../Provider/AuthProvider";
 import toast from "react-hot-toast";
 
 const Login = () => {
   const navigate = useNavigate();
   const { signInUser, signInWithGoogle } = useContext(AuthContext);
+  const location = useLocation();
   const handleLogin = (e) =>{
     e.preventDefault();
     const form = e.target;
@@ -14,9 +15,10 @@ const Login = () => {
     const password = form.password.value;
 
     signInUser(email, password)
+    // eslint-disable-next-line no-unused-vars
     .then(user =>{
       toast.success("successfully signed in");
-      console.log(user);
+      navigate(location?.state ? location.state : "/");
     })
     .catch(err =>{
       toast.error(err.message);

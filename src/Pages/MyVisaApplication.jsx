@@ -6,7 +6,6 @@ const MyVisaApplication = () => {
     const { user } = useContext(AuthContext);
     const [applicantInfo, setApplicantInfo] = useState([]);
     const [countryName, setCountryName] = useState("");
-    const [searchResult, setSearchResult] = useState({});
 
     const handleChange = (e) =>{
         setCountryName(e.target.value);
@@ -39,24 +38,6 @@ const MyVisaApplication = () => {
                     <input type="submit" value="Search" className="bg-red-500 px-5 py-2 rounded-md text-white font-semibold w-24 cursor-pointer hover:bg-red-600" />
                 </div>
             </form>
-
-            {
-                // Object.keys(searchResult).length > 0  ? 
-                //     <div className="card bg-base-100 w-[300px] shadow-xl">
-                //     <figure>
-                //       <img
-                //         src={searchResult.countryImage}
-                //         alt="country image" />
-                //     </figure>
-                //     <div className="card-body">
-                //       <h2 className="card-title">{searchResult.countryName}</h2>
-                //       <p>{searchResult.description}</p>
-                //       <div className="card-actions justify-end">
-                //         <button className="btn btn-primary">Buy Now</button>
-                //       </div>
-                //     </div>
-                //   </div>
-                // :
             <div className="grid grid-cols-12 gap-4 mb-8">
                 {
                     applicantInfo.map((info => <ApplicationCard 
@@ -68,7 +49,6 @@ const MyVisaApplication = () => {
                     </ApplicationCard>))
                 }
             </div>
-            }
         </div>
         
     )

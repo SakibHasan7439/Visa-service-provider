@@ -10,10 +10,10 @@ const Toggle = () => {
       document.querySelector('html').setAttribute('data-theme', theme);
     }, [theme]);
     return (
-      <label className="swap swap-rotate">
+      <label className="swap ">
         <input onClick={toggleTheme} type="checkbox" />
-        <div className="swap-on">DARKMODE</div>
-        <div className="swap-off">LIGHTMODE</div>
+        <div className="swap-on px-4 py-2 text-center">DARKMODE</div>
+        <div className="swap-off px-4 py-2 text-center">LIGHTMODE</div>
       </label>
     );
 };

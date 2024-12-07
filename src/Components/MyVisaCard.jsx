@@ -41,13 +41,11 @@ const MyVisaCard = ({ myVisa, setMyVisas, myVisas }) => {
 
   const handleUpdate = (e) =>{
     e.preventDefault();
-    e.preventDefault();
     const form = e.target;
     const countryImage = form.image.value;
     const countryName = form.name.value;
     const visa_type = form.visas.value;
     const Processing_time = form.time.value;
-    const required_docs = form.required_doc.value;
     const description = form.description.value;
     const age = form.age.value;
     const fee = form.fee.value;
@@ -55,7 +53,7 @@ const MyVisaCard = ({ myVisa, setMyVisas, myVisas }) => {
     const applicationMethod = form.applicationMethod.value;
     const email = user.email;
 
-    const visa = {countryImage, countryName, visa_type, Processing_time, required_docs, description, fee, age, validity, applicationMethod, email}
+    const visa = {countryImage, countryName, visa_type, Processing_time, description, fee, age, validity, applicationMethod, email}
 
     fetch(`https://visa-processing-server-pearl.vercel.app/addVisas/${_id}`, {
       method: "PUT",
@@ -118,7 +116,7 @@ const MyVisaCard = ({ myVisa, setMyVisas, myVisas }) => {
             <MdDelete></MdDelete>
           </button>
           <button
-            onClick={() => document.getElementById("my_modal_5").showModal()}
+            onClick={() => document.getElementById(`${_id}`).showModal()}
             className="px-2 btn-sm text-xl rounded-md bg-red-500 text-white font-semibold hover:bg-red-600"
           >
             <FaPenClip></FaPenClip>
@@ -127,7 +125,7 @@ const MyVisaCard = ({ myVisa, setMyVisas, myVisas }) => {
       </div>
 
       {/* Open the modal using document.getElementById('ID').showModal() method */}
-      <dialog id="my_modal_5" className="modal modal-bottom sm:modal-middle">
+      <dialog id={`${_id}`} className="modal modal-bottom sm:modal-middle">
         <div className="modal-box">
           <form onSubmit={handleUpdate}>
               <label>Country image</label>
@@ -166,7 +164,7 @@ const MyVisaCard = ({ myVisa, setMyVisas, myVisas }) => {
                     marginBottom: "0px",
                   }}
                   type="checkbox"
-                  name="required_doc"
+                  name="valid_passport"
                 />
                 <label>Valid Passport</label>
               </div>
@@ -179,7 +177,7 @@ const MyVisaCard = ({ myVisa, setMyVisas, myVisas }) => {
                     marginBottom: "0px",
                   }}
                   type="checkbox"
-                  name="required_doc"
+                  name="visa_application_form"
                 />
                 <label>Visa application form</label>
               </div>
@@ -192,7 +190,7 @@ const MyVisaCard = ({ myVisa, setMyVisas, myVisas }) => {
                     marginBottom: "0px",
                   }}
                   type="checkbox"
-                  name="required_doc"
+                  name="recent_passport_sized_photograph"
                 />
                 <label>Recent passport-sized photograph</label>
               </div>

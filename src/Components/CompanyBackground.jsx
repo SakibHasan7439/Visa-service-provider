@@ -12,6 +12,7 @@ const CompanyBackground = () => {
                     Since our founding, our primary goal has been to provide visas in all over country and universities. Our impact is speak louder than our word.
                 </p>
             </div>
+
             <div className="grid grid-cols-12 md:gap-10">
                 <div className="col-span-12 md:col-span-6 px-4 lg:col-span-3 text-center">
                     <img className="w-16 mx-auto mb-4" src={workingVisa} alt="" />
