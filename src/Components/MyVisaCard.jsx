@@ -71,9 +71,8 @@ const MyVisaCard = ({ myVisa, setMyVisas, myVisas }) => {
           text: "Visa updated successfully",
           icon: "success"
         });
-        form.reset();
       }
-    })
+    });
   }
 
   return (
@@ -232,11 +231,12 @@ const MyVisaCard = ({ myVisa, setMyVisas, myVisas }) => {
                 defaultValue={applicationMethod}
                 id=""
               />
-
+ 
           <input
             className="flex justify-center bg-red-500 text-white cursor-pointer hover:bg-red-600"
             type="submit"
             value="Update Visa"
+            onClick={()=>document.getElementById(`${_id}`).close()}
           />
           </form>
           <div className="modal-action">
