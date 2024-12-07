@@ -3,12 +3,17 @@ import Banner from "../Components/Banner";
 import LatestVisaCard from "../Components/LatestVisaCard";
 import ClientSay from "../Components/ClientSay";
 import CompanyBackground from "../Components/CompanyBackground";
+import Toggle from "../Components/Toggle";
+
 
 const Home = () => {
   const latestVisas = useLoaderData();
 
+
   return (
+    
     <div>
+      <Toggle></Toggle>
       <Banner></Banner>
       <div className="max-w-7xl w-full mx-auto">
         <h2 className="md:text-2x font-semibold text-center lg:text-4xl mb-6 lg:mb-8">
