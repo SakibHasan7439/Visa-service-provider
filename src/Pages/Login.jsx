@@ -29,7 +29,7 @@ const Login = () => {
     signInWithGoogle()
     .then(() =>{
       toast.success("Sign in successfully");
-      navigate("/");
+      navigate(location?.state ? location.state : "/");
     })
     .catch(err => {
       toast.error("something wrong!");
