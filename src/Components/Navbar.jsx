@@ -6,6 +6,7 @@ import { AuthContext } from "../Provider/AuthProvider";
 import toast from "react-hot-toast";
 
 const Navbar = () => {
+
   const { user, signOutUser } = useContext(AuthContext);
   const handleSignOut = () =>{
     signOutUser()
