@@ -5,7 +5,7 @@ import ApplicationCard from "../Components/ApplicationCard";
 const MyVisaApplication = () => {
     const { user } = useContext(AuthContext);
     const [applicantInfo, setApplicantInfo] = useState([]);
-    
+
     useEffect(()=>{
         fetch(`https://visa-processing-server-pearl.vercel.app/addApplications?userEmail=${user.email}`)
         .then(res => res.json())

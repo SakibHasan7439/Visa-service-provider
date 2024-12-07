@@ -1,7 +1,7 @@
 import toast from "react-hot-toast";
 /* eslint-disable react/prop-types */
 const ApplicationCard = ({info, setApplicantInfo, applicantInfo}) => {
-    const { countryImage, countryName, appliedFee, appliedDate, visa_type, processing_time, validity, application_method, firstName, lastName, email, _id } = info;
+    const { countryImage, countryName, appliedFee, appliedDate, visa_type, processing_time, validity, applicationMethod, firstName, lastName, email, _id } = info;
 
     const handleDelete = (_id) =>{
         fetch(`https://visa-processing-server-pearl.vercel.app/addApplication/${_id}`, {
@@ -45,7 +45,7 @@ const ApplicationCard = ({info, setApplicantInfo, applicantInfo}) => {
                 <strong>Validity:</strong> {validity}
             </li>
             <li>
-                <strong>Application Method:</strong> {application_method}
+                <strong>Application Method:</strong> {applicationMethod}
             </li>
             <li>
                 <strong>Applied Date:</strong> {appliedDate}

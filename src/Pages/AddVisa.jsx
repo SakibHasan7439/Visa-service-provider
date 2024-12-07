@@ -8,16 +8,12 @@ const AddVisa = () => {
 
     const handleSubmit = (e) =>{
         e.preventDefault();
-        console.log(e.target.image.value);
         const form = e.target;
         const countryImage = form.image.value;
         const countryName = form.name.value;
         const visa_type = form.visas.value;
         const Processing_time = form.time.value;
-        const validPassport = form.validPassport.value;
-        const applicationForm = form.applicationForm.value;
-        const photograph = form.photograph.value;
-        const required_docs = [applicationForm, photograph, validPassport]
+        const required_docs = form.required_doc.value;
         const description = form.description.value;
         const age = form.age.value;
         const fee = form.fee.value;
@@ -79,7 +75,7 @@ const AddVisa = () => {
               <input
                 style={{ height: "15px", width: "15px", marginBottom: "0px" }}
                 type="checkbox"
-                name="validPassport"
+                name="required_doc"
               />
               <label>Valid Passport</label>
             </div>
@@ -88,7 +84,7 @@ const AddVisa = () => {
               <input
                 style={{ height: "15px", width: "15px", marginBottom: "0px" }}
                 type="checkbox"
-                name="applicationForm"
+                name="required_doc"
               />
               <label>Visa application form</label>
             </div>
@@ -97,7 +93,7 @@ const AddVisa = () => {
               <input
                 style={{ height: "15px", width: "15px", marginBottom: "0px" }}
                 type="checkbox"
-                name="photograph"
+                name="required_doc"
               />
               <label>Recent passport-sized photograph</label>
             </div>
