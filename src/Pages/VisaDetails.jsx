@@ -1,7 +1,7 @@
 import { useContext } from "react";
-import toast from "react-hot-toast";
 import { useLoaderData } from "react-router-dom";
 import { AuthContext } from "../Provider/AuthProvider";
+import Swal from "sweetalert2";
 
 const VisaDetails = () => {
   const { user } = useContext(AuthContext);
@@ -40,9 +40,11 @@ const VisaDetails = () => {
       .then((res) => res.json())
       .then((data) => {
         if(data.insertedId){
-            toast.success("Application Successful", {
-                position: 'top-right',
-            })
+          Swal.fire({
+            title: "successful",
+            text: "Applied Successful",
+            icon: "success"
+          });
             form.reset();
         }
       });
@@ -96,7 +98,7 @@ const VisaDetails = () => {
                 <input type="date" required name="date" id="" />
                 <label>Fee:</label>
                 <input type="number" required name="fee" id="" />
-                <input className="bg-red-500 hover:bg-red-600 text-white cursor-pointer" type="submit" value="Apply Now" />
+                <input className="bg-red-500 hover:bg-red-600 text-white cursor-pointer" type="submit" value="Apply Now"onClick={()=>document.getElementById("my_modal_5").close()} />
             </form>
           <div className="modal-action justify-center">
             <form method="dialog">
