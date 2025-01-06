@@ -39,7 +39,7 @@ const MyVisaCard = ({ myVisa, setMyVisas, myVisas }) => {
       });
   };
 
-  const handleUpdate = (e) =>{
+  const handleUpdate = (e) => {
     e.preventDefault();
     const form = e.target;
     const countryImage = form.image.value;
@@ -53,80 +53,79 @@ const MyVisaCard = ({ myVisa, setMyVisas, myVisas }) => {
     const applicationMethod = form.applicationMethod.value;
     const email = user.email;
 
-    const visa = {countryImage, countryName, visa_type, Processing_time, description, fee, age, validity, applicationMethod, email}
+    const visa = {
+      countryImage,
+      countryName,
+      visa_type,
+      Processing_time,
+      description,
+      fee,
+      age,
+      validity,
+      applicationMethod,
+      email,
+    };
 
     fetch(`https://visa-processing-server-pearl.vercel.app/addVisas/${_id}`, {
       method: "PUT",
       headers: {
-        "content-type": "application/json"
+        "content-type": "application/json",
       },
-      body: JSON.stringify(visa)
+      body: JSON.stringify(visa),
     })
-    .then(res => res.json())
-    .then(data =>{
-      console.log(data);
-      if(data.modifiedCount > 0){
-        Swal.fire({
-          title: "success",
-          text: "Visa updated successfully",
-          icon: "success"
-        });
-      }
-    });
-  }
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        if (data.modifiedCount > 0) {
+          Swal.fire({
+            title: "success",
+            text: "Visa updated successfully",
+            icon: "success",
+          });
+        }
+      });
+  };
 
   return (
-    <div className="card rounded-md card-compact bg-base-100 col-span-12 md:col-span-6 lg:col-span-4 border py-4">
-      <figure className="px-4">
-        <img
-          className="h-[237px] w-full rounded-md object-cover"
-          src={countryImage}
-          alt={`${countryName} flag`}
-        />
-      </figure>
-      <div className="card-body">
-        <h2 className="card-title justify-center">{countryName}</h2>
-        <ul className="space-y-1 text-sm text-gray-600">
-          <li>
-            <strong>Visa_type: </strong>
-            {visa_type}
-          </li>
-          <li>
-            <strong>Processing_time: </strong>
-            {Processing_time}
-          </li>
-          <li>
-            <strong>Fee: </strong>${fee}
-          </li>
-          <li>
-            <strong>Validity: </strong>
-            {validity}
-          </li>
-          <li>
-            <strong>Application_method: </strong>
-            {applicationMethod}
-          </li>
-        </ul>
-        <div className="card-actions justify-end">
-          <button
-            onClick={() => handleDelete(_id)}
-            className="px-2 btn-sm text-xl rounded-md bg-red-500 text-white font-semibold hover:bg-red-600"
-          >
-            <MdDelete></MdDelete>
-          </button>
-          <button
-            onClick={() => document.getElementById(`${_id}`).showModal()}
-            className="px-2 btn-sm text-xl rounded-md bg-red-500 text-white font-semibold hover:bg-red-600"
-          >
-            <FaPenClip></FaPenClip>
-          </button>
-        </div>
-      </div>
-
-      {/* Open the modal using document.getElementById('ID').showModal() method */}
+      <tr>
+        <th>
+          <label>
+            <input type="checkbox" className="checkbox" />
+          </label>
+        </th>
+        <td>
+          <div className="flex items-center gap-3">
+            <div className="avatar">
+              <div className="mask rounded-md h-12 w-12">
+                <img
+                  src={countryImage}
+                  alt="Avatar Tailwind CSS Component"
+                />
+              </div>
+            </div>
+          </div>
+        </td>
+        <td>
+          <p>{countryName}</p>
+        </td>
+        <td>${fee}</td>
+        <th>
+        <button
+              onClick={() => handleDelete(_id)}
+              className="px-2 btn-sm text-xl rounded-md bg-red-500 text-white font-semibold mr-4 hover:bg-red-600"
+            >
+              <MdDelete></MdDelete>
+            </button>
+            <button
+              onClick={() => document.getElementById(`${_id}`).showModal()}
+              className="px-2 btn-sm text-xl rounded-md bg-red-500 text-white font-semibold hover:bg-red-600"
+            >
+              <FaPenClip></FaPenClip>
+        </button>
+        </th>
       <dialog id={`${_id}`} className="modal modal-bottom sm:modal-middle">
-        <div className="modal-box">
-          <form onSubmit={handleUpdate}>
+          <div className="modal-box">
+            <form onSubmit={handleUpdate}>
               <label>Country image</label>
               <input
                 type="text"
@@ -152,7 +151,12 @@ const MyVisaCard = ({ myVisa, setMyVisas, myVisas }) => {
               </select>
 
               <label>Processing Time</label>
-              <input type="text" defaultValue={Processing_time} name="time" id="" />
+              <input
+                type="text"
+                defaultValue={Processing_time}
+                name="time"
+                id=""
+              />
 
               <label>Required Documents</label>
               <div className="flex gap-2 items-center">
@@ -212,7 +216,13 @@ const MyVisaCard = ({ myVisa, setMyVisas, myVisas }) => {
               />
 
               <label>Fee</label>
-              <input type="number" defaultValue={fee} placeholder="fee" name="fee" id="" />
+              <input
+                type="number"
+                defaultValue={fee}
+                placeholder="fee"
+                name="fee"
+                id=""
+              />
 
               <label>Validity</label>
               <input
@@ -231,23 +241,24 @@ const MyVisaCard = ({ myVisa, setMyVisas, myVisas }) => {
                 defaultValue={applicationMethod}
                 id=""
               />
- 
-          <input
-            className="flex justify-center bg-red-500 text-white cursor-pointer hover:bg-red-600"
-            type="submit"
-            value="Update Visa"
-            onClick={()=>document.getElementById(`${_id}`).close()}
-          />
-          </form>
-          <div className="modal-action">
-            <form method="dialog">
-              {/* if there is a button in form, it will close the modal */}
-              <button className="btn">Close</button>
+
+              <input
+                className="flex justify-center bg-red-500 text-white cursor-pointer hover:bg-red-600"
+                type="submit"
+                value="Update Visa"
+                onClick={() => document.getElementById(`${_id}`).close()}
+              />
             </form>
+            <div className="modal-action">
+              <form method="dialog">
+                {/* if there is a button in form, it will close the modal */}
+                <button className="btn">Close</button>
+              </form>
+            </div>
           </div>
-        </div>
-      </dialog>
-    </div>
+        </dialog>        
+      </tr>
+     
   );
 };
 

@@ -7,7 +7,7 @@ import flag3 from "../assets/flag3.webp"
 
 const ClientSay = () => {
     return (
-        <div className="grid grid-cols-12 mb-8 gap-4 lg:gap-10">
+        <div className="grid grid-cols-12 mb-8 lg:mb-12 gap-4 lg:gap-10">
             <div className="col-span-12 md:col-span-6 lg:col-span-4 bg-[#fceecc] rounded-md p-4 md:p-10 flex flex-col justify-center text-black">
                 <img className="w-10 mx-auto h-10 object-cover md:w-16 md:h-16 rounded-full mb-4" src={client1} alt="client_image" />
                 <p className="mb-4 text-lg text-center">

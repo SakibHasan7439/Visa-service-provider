@@ -79,9 +79,12 @@ const VisaDetails = () => {
         </p>
       </div>
       <div className="flex justify-center">
-        <button onClick={() => document.getElementById("my_modal_5").showModal()} className="bg-red-500 px-5 py-2 rounded-md text-white">
+        {
+          user && <button onClick={() => document.getElementById("my_modal_5").showModal()} className="bg-red-500 px-5 py-2 rounded-md text-white">
           Apply For Visa
         </button>
+        }
+        
       </div>
       {/* Open the modal using document.getElementById('ID').showModal() method */}
 

@@ -5,6 +5,7 @@ import { useContext } from "react";
 import { AuthContext } from "../Provider/AuthProvider";
 import toast from "react-hot-toast";
 import Typewriter from "typewriter-effect";
+import Toggle from "./Toggle";
 
 const Navbar = () => {
   const { user, signOutUser } = useContext(AuthContext);
@@ -45,9 +46,10 @@ const Navbar = () => {
           >
             <NavLink to={"/"}>Home</NavLink>
             <NavLink to={"/allVisas"}>All Visas</NavLink>
-            <NavLink to={"/addVisas"}>Add Visa</NavLink>
-            <NavLink to={"/myVisas"}>My added visas</NavLink>
-            <NavLink to={"/myApplications"}>My Visa applications</NavLink>
+            <NavLink className={user ? "block" : "hidden"} to={"/addVisas"}>Add Visa</NavLink>
+            <NavLink className={user ? "block" : "hidden"} to={"/myVisas"}>My added visas</NavLink>
+            <NavLink className={user ? "block" : "hidden"} to={"/myApplications"}>My Visa applications</NavLink>
+            <NavLink>About Us</NavLink>
           </ul>
         </div>
         <div className="flex items-center">
@@ -67,12 +69,13 @@ const Navbar = () => {
         <ul className="menu menu-horizontal gap-4 lg:text-sm xl:text-lg text-lg px-1">
           <NavLink to={"/"}>Home</NavLink>
           <NavLink to={"/allVisas"}>All Visas</NavLink>
-          <NavLink to={"/addVisas"}>Add Visa</NavLink>
-          <NavLink to={"/myVisas"}>My added visas</NavLink>
-          <NavLink to={"/myApplications"}>My Visa applications</NavLink>
+          <NavLink className={user ? "block" : "hidden"} to={"/addVisas"}>Add Visa</NavLink>
+          <NavLink className={user ? "block" : "hidden"} to={"/myVisas"}>My added visas</NavLink>
+          <NavLink className={user ? "block" : "hidden"} to={"/myApplications"}>My Visa applications</NavLink>
+          <NavLink to={"/aboutUs"}>About Us</NavLink>
         </ul>
       </div>
-      <div className="navbar-end">
+      <div className="navbar-end md:mt-8">
         {user ? (
           <div className="flex gap-4 text-lg">
             <div className="tooltip" data-tip={user.displayName}>
@@ -90,10 +93,11 @@ const Navbar = () => {
             </button>
           </div>
         ) : (
-          <div className="flex gap-4 text-lg">
+            <div className="flex gap-4 text-lg">
+            <Toggle></Toggle>
             <NavLink to={"/login"}>Login</NavLink>
             <NavLink to={"/register"}>Register</NavLink>
-          </div>
+          </div> 
         )}
       </div>
     </div>
