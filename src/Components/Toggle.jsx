@@ -10,7 +10,7 @@ const Toggle = () => {
     document.querySelector("html").setAttribute("data-theme", theme);
   }, [theme]);
   return (
-    <label className="swap swap-rotate justify-end pr-4">
+    <label className="swap swap-rotate justify-end pb-[10px] pr-4">
       <input className="w-8 h-8 border-none" onClick={toggleTheme} type="checkbox" />
       <svg
         className="swap-on h-8 w-8 fill-current"

@@ -53,7 +53,7 @@ const Navbar = () => {
           </ul>
         </div>
         <div className="flex items-center">
-          <img className="w-12 md:w-24" src={logo} alt="website logo" />
+          <img className="w-3 md:w-24" src={logo} alt="website logo" />
           <a className="btn btn-ghost md:text-xl px-0 text-sm pt-[10px] md:pt-[14px] font-bold xl:text-3xl text-blue-900"> 
             <Typewriter
               options={{
@@ -77,8 +77,9 @@ const Navbar = () => {
       </div>
       <div className="navbar-end md:mt-8">
         {user ? (
-          <div className="flex gap-4 text-lg">
-            <div className="tooltip" data-tip={user.displayName}>
+          <div className="flex gap-4 items-center text-lg">
+            <Toggle></Toggle>
+            <div className="tooltip w-[110px] md:w-[116px]" data-tip={user.displayName}>
               <img
                 className="w-7 h-7 md:w-12 md:h-12 object-cover rounded-full"
                 src={user.photoURL}
@@ -87,7 +88,7 @@ const Navbar = () => {
             </div>
             <button
               onClick={handleSignOut}
-              className="bg-red-500 rounded-md text-sm px-5 py-1 font-semibold text-white"
+              className="bg-red-500 rounded-md text-sm px-2 py-2 md:px-5 md:py-4 md:font-semibold text-white"
             >
               LogOut
             </button>
