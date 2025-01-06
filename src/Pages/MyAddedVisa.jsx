@@ -15,7 +15,7 @@ const MyAddedVisa = () => {
     }, []);
     return (
         <div className="max-w-7xl w-full mx-auto">
-            <h2 className="text-center text-2xl md:text-4xl font-semibold my-8">My visas</h2>
+            <h2 className="text-center text-2xl md:text-4xl font-playfair my-8">My visas</h2>
             <div className="grid grid-cols-12 gap-4">
                 {
                     myVisas.map((myVisa)=> <MyVisaCard 

@@ -9,10 +9,10 @@ const CompanyBackground = () => {
     <div className="mb-8 lg:mb-12 bg-[#f5f5f5] py-6 md:py-12 lg:py-20">
       <div className="md:w-5/6 lg:w-2/3 mx-auto mb-8">
         <Fade cascade>
-            <h1 className="text-2xl font-semibold md:text-4xl text-center mb-3">
+            <h1 className="text-2xl font-playfair md:text-4xl text-center mb-3">
                 Why Visa Portal
             </h1>
-            <p className="lg:text-xl text-center">
+            <p className="lg:text-xl text-center font-playfair">
                 Since our founding, our primary goal has been to provide visas in all
                 over country and universities. Our impact is speak louder than our
                 word.

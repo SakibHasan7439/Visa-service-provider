@@ -31,7 +31,7 @@ const MyVisaApplication = () => {
 
     return (
         <div className="max-w-7xl w-full mx-auto mt-6 lg:mt-10">
-            <h2 className="text-center text-2xl md:text-4xl font-bold mb-6 lg:mb-8">User Application Cards</h2>
+            <h2 className="text-center text-2xl md:text-4xl font-playfair mb-6 lg:mb-8">User Application Cards</h2>
             <form onSubmit={handleSubmit}>
                 <div className="flex md:w-1/2 mx-auto gap-2 mb-8">
                     <input type="text" onChange={handleChange} placeholder="Search by Country name" name="countryName" id="" />

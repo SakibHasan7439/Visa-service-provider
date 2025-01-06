@@ -48,82 +48,84 @@ const AddVisa = () => {
         })
     }
   return (
-    <div className="max-w-7xl w-full mx-auto mb-6">
-      <h2 className="text-center mb-6 lg:mb-8 text-2xl lg:text-4xl font-bold">Add Visa</h2>
-      <form onSubmit={handleSubmit}>
-        <div className="lg:flex justify-between gap-4">
+    <div className="bg-[#fceecc58] py-4">
+      <div className="max-w-4xl rounded-md p-4 bg-[#fceecc97] w-full mx-auto mb-6">
+        <h2 className="text-center mb-6 lg:mb-8 text-2xl lg:text-4xl font-playfair">Add Visa</h2>
+        <form onSubmit={handleSubmit}>
           <div>
-            <label>Country image</label>
-            <input type="text" placeholder="country image" name="image" id="" />
+            <div>
+              <label>Country image</label>
+              <input type="text" placeholder="country image" name="image" id="" />
 
-            <label>Country Name</label>
-            <input type="text" name="name" id="" />
+              <label>Country Name</label>
+              <input type="text" name="name" id="" />
 
-            <label>Visa_type</label>
-            <select
-              name="visas"
-              id="visas"
-              className="block mb-4 border rounded-md border-black"
-            >
-              <option value="student_visa">Student Visa</option>
-              <option value="business_visa">Business Visa</option>
-              <option value="family_visa">Family Visa</option>
-            </select>
+              <label>Visa_type</label>
+              <select
+                name="visas"
+                id="visas"
+                className="block mb-4 border rounded-md border-black"
+              >
+                <option value="student_visa">Student Visa</option>
+                <option value="business_visa">Business Visa</option>
+                <option value="family_visa">Family Visa</option>
+              </select>
 
-            <label>Processing Time</label>
-            <input type="text" name="time" id="" />
+              <label>Processing Time</label>
+              <input type="text" name="time" id="" />
 
-            <label>Required Documents</label>
-            <div className="flex gap-2 items-center">
-              <input
-                style={{ height: "15px", width: "15px", marginBottom: "0px" }}
-                type="checkbox"
-                name="valid_passport"
-              />
-              <label>Valid Passport</label>
+              <label>Required Documents</label>
+              <div className="flex gap-2 items-center">
+                <input
+                  style={{ height: "15px", width: "15px", marginBottom: "0px" }}
+                  type="checkbox"
+                  name="valid_passport"
+                />
+                <label>Valid Passport</label>
+              </div>
+
+              <div className="flex gap-2 items-center">
+                <input
+                  style={{ height: "15px", width: "15px", marginBottom: "0px" }}
+                  type="checkbox"
+                  name="visa_application_form"
+                />
+                <label>Visa application form</label>
+              </div>
+
+              <div className="flex gap-2 items-center">
+                <input
+                  style={{ height: "15px", width: "15px", marginBottom: "0px" }}
+                  type="checkbox"
+                  name="recent_passport_size_photograph"
+                />
+                <label>Recent passport-sized photograph</label>
+              </div>
             </div>
+            <div>
+              <label>Description</label>
+              <textarea
+                placeholder="description"
+                name="description"
+                className="textarea textarea-bordered textarea-md w-full"
+              ></textarea>
 
-            <div className="flex gap-2 items-center">
-              <input
-                style={{ height: "15px", width: "15px", marginBottom: "0px" }}
-                type="checkbox"
-                name="visa_application_form"
-              />
-              <label>Visa application form</label>
-            </div>
+              <label>Age_restriction</label>
+              <input type="number" placeholder="age restriction" name="age" id="" />
 
-            <div className="flex gap-2 items-center">
-              <input
-                style={{ height: "15px", width: "15px", marginBottom: "0px" }}
-                type="checkbox"
-                name="recent_passport_size_photograph"
-              />
-              <label>Recent passport-sized photograph</label>
+              <label>Fee</label>
+              <input type="number"  placeholder="fee" name="fee" id="" />
+
+              <label>Validity</label>
+              <input type="text" placeholder="validity" name="validity" id="" />
+
+              <label>Application_method</label>
+              <input type="text" placeholder="application method" name="applicationMethod" id="" />
             </div>
           </div>
-          <div>
-            <label>Description</label>
-            <textarea
-              placeholder="description"
-              name="description"
-              className="textarea textarea-bordered textarea-md w-full"
-            ></textarea>
-
-            <label>Age_restriction</label>
-            <input type="number" placeholder="age restriction" name="age" id="" />
-
-            <label>Fee</label>
-            <input type="number"  placeholder="fee" name="fee" id="" />
-
-            <label>Validity</label>
-            <input type="text" placeholder="validity" name="validity" id="" />
-
-            <label>Application_method</label>
-            <input type="text" placeholder="application method" name="applicationMethod" id="" />
-          </div>
-        </div>
-        <input className="flex justify-center bg-red-500 text-white cursor-pointer hover:bg-red-600" type="submit" value="Add Visa" />
-      </form>
+          <input className="flex justify-center bg-red-500 text-white cursor-pointer hover:bg-red-600" type="submit" value="Add Visa" />
+        </form>
+      </div>
     </div>
   );
 };
